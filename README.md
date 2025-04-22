@@ -1,4 +1,4 @@
-# Gestión de Contactos en una Academia
+# Gestión de Contactos
 
 Este programa es una aplicación Java que permite gestionar contactos de alumnos y profesores de una academia. Se ha desarrollado siguiendo los requisitos de un ejercicio de programación orientada a objetos y tiene un menú interactivo para la gestión de los contactos. 
 
