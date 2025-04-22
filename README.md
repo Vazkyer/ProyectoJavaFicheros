@@ -70,19 +70,7 @@ Además, el proyecto incluye:
 
 ## Instrucciones de uso
 
-1. **Compilar el proyecto**:
-   - Abre el proyecto en tu IDE (por ejemplo, Eclipse).
-   - Compila el proyecto para generar los archivos `.class`.
-
-2. **Ejecutar el programa**:
-   - Ejecuta la clase `Main.java`.
-   - Se abrirá una interfaz de menú donde podrás seleccionar las diferentes opciones para gestionar los contactos.
-
-3. **Interacción con el usuario**:
-   - El programa te pedirá que ingreses los datos de los contactos a través de cuadros de texto.
-   - Los contactos serán almacenados en memoria y en un archivo `contactos.csv` para persistencia.
-
-4. **Opciones del menú**:
+**Opciones del menú**:
    - **Crear contacto**: Permite agregar un nuevo contacto (alumno o profesor).
    - **Mostrar todos**: Muestra todos los contactos almacenados.
    - **Buscar contacto**: Permite buscar un contacto por su nombre.
