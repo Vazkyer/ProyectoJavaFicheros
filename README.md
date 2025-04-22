@@ -107,13 +107,13 @@ Además, el proyecto incluye:
 
 ## Créditos
 
-- Este proyecto ha sido realizado por [Nombre1] y [Nombre2].
+- Este proyecto ha sido realizado por Félix Sácnhez y Alain Vázquez.
 
 ---
 
 ## Video Explicativo
 
-Un video explicativo está incluido en el archivo ZIP para mostrar cómo funciona la aplicación, incluyendo la interfaz gráfica y la interacción con los menús.
+--Insertar video
 
 ## Archivos entregados
 
@@ -121,7 +121,7 @@ Un video explicativo está incluido en el archivo ZIP para mostrar cómo funcion
 2. `Persona.java`
 3. `Alumno.java`
 4. `Profesor.java`
-5. `contactos.csv` (opcional, archivo de ejemplo)
+5. `contactos.csv`
 6. `README.md`
 7. [Enlace al video explicativo (si es necesario)]
 
