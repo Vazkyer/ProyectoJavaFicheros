@@ -90,13 +90,13 @@ Además, el proyecto incluye:
    - El archivo CSV contiene los datos de los contactos, que son cargados y guardados cada vez que se inicia o termina el programa.
 
 
-## Créditos
+## Creadores
 
-- Este proyecto ha sido realizado por Félix Sácnhez y Alain Vázquez.
+- Félix Sácnhez y Alain Vázquez.
 
 ---
 
-## Video Explicativo
+## Video
 
 --Insertar video
 
@@ -108,6 +108,6 @@ Además, el proyecto incluye:
 4. `Profesor.java`
 5. `contactos.csv`
 6. `README.md`
-7. [Enlace al video explicativo]
+7. Enlace al video 
 
 ---
