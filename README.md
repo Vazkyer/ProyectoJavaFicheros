@@ -89,9 +89,6 @@ Además, el proyecto incluye:
 3. **Ficheros**:
    - El archivo CSV contiene los datos de los contactos, que son cargados y guardados cada vez que se inicia o termina el programa.
 
-## Requisitos previos
-
-- **JDK 8 o superior**: El proyecto está desarrollado en Java 8 y requiere tener el JDK instalado en tu sistema.
 
 ## Créditos
 
@@ -111,6 +108,6 @@ Además, el proyecto incluye:
 4. `Profesor.java`
 5. `contactos.csv`
 6. `README.md`
-7. [Enlace al video explicativo (si es necesario)]
+7. [Enlace al video explicativo]
 
 ---
