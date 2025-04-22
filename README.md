@@ -51,7 +51,7 @@ Este programa es una aplicación Java que permite gestionar contactos de alumnos
 
 Un diagrama simple de las clases es el siguiente:
 
-+-------------------+ | Persona | +-------------------+ | - nombre: String | | - email: String | +-------------------+ | + getTipo(): String| +-------------------+ ^ | +-------+--------+ | | +---------+ +----------+ | Alumno | | Profesor | +---------+ +----------+ | - curso | | - especialidad | +---------+ +----------+ | + getTipo()| | + getTipo() | +------------+ +---------------+
+--Insertar diagrama
 
 
 ### Estructura de archivos
