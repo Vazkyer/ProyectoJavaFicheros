@@ -1,13 +1,16 @@
+// Librerias para interfaz grafica
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+// Librerias para la manipulacion de archivos y sus excepciones
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+// Librerias para las colecciones
 import java.util.ArrayList;
 import java.util.List;
 
