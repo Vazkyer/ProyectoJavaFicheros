@@ -116,17 +116,20 @@ public class Main {
             }
         }
     }
-
+    // Funcion para mostrar todos los contactos
     private static void mostrarTodos() {
+        // Dar mensaje de no existencia de contactos si ese es el caso
         if (contactos.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay contactos registrados");
             return;
         }
 
+        // Crear ara de texto para mostrar lso contactos
         JTextArea areaTexto = new JTextArea(15, 40);
-        areaTexto.setEditable(false);
-        contactos.forEach(p -> areaTexto.append(p + "\n"));
+        areaTexto.setEditable(false); // No permitir la edicin del texto en dicha area
+        contactos.forEach(p -> areaTexto.append(p + "\n")); // Imprimir en el area de texto cada contacto en una linea nuvela haciendo For Each
 
+        // Mostrar
         JOptionPane.showMessageDialog(
                 null,
                 new JScrollPane(areaTexto),
