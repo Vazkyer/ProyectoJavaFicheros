@@ -11,10 +11,12 @@ public class Profesor extends Persona {
         return "Profesor";
     }
 
+    // Funcion obtener el especialidad
     public String getEspecialidad() {
         return especialidad;
     }
 
+    // Agregar a el toString la especialidad
     @Override
     public String toString() {
         return super.toString() + " - Especialidad: " + especialidad;
