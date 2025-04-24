@@ -35,7 +35,7 @@ public class Main {
         while (true) {
             int seleccion = JOptionPane.showOptionDialog(
                     null,
-                    "GESTIÓN DE ACADEMIA\nSeleccione una opción:",
+                    "GESTIÓN DE CONTACTOS\nSeleccione una opción:",
                     "Menú Principal",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE,
