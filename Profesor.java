@@ -10,7 +10,7 @@ public class Profesor extends Persona {
     public String getTipo() {
         return "Profesor";
     }
-
+    // Funcion nueva Obtener especialidad
     public String getEspecialidad() {
         return especialidad;
     }
