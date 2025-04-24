@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    private static final String ARCHIVO = "contactos.csv";
-    private static ArrayList<Persona> contactos = new ArrayList<>();
-
+    private static final String ARCHIVO = "contactos.csv"; // Variable estatica nombre archivo .csv
+    private static ArrayList<Persona> contactos = new ArrayList<>(); // ArrayList de la clase Persona
+    // Funcion main del flujo del programa
     public static void main(String[] args) {
         cargarContactos();
         mostrarMenuPrincipal();
     }
-
+    // Mostrar el menu principal con JOptionPane
     private static void mostrarMenuPrincipal() {
+        // Array String de botones de opciones
         String[] opciones = {
                 "Crear contacto",
                 "Mostrar todos",
@@ -20,7 +21,7 @@ public class Main {
                 "Estadísticas",
                 "Guardar y salir"
         };
-
+        // Bucle para mostrar el menu
         while (true) {
             int seleccion = JOptionPane.showOptionDialog(
                     null,
@@ -32,14 +33,25 @@ public class Main {
                     opciones,
                     opciones[0]
             );
-
+            // Switch para ejecutar cada funcion en funcion de la eleccion del usuario
             switch (seleccion) {
-                case 0: crearContacto(); break;
-                case 1: mostrarTodos(); break;
-                case 2: buscarContacto(); break;
-                case 3: mostrarEstadisticas(); break;
-                case 4: guardarYSalir(); return;
-                default: return;
+                case 0: 
+                    crearContacto(); 
+                    break;
+                case 1: 
+                    mostrarTodos(); 
+                    break;
+                case 2: 
+                    buscarContacto(); 
+                    break;
+                case 3: 
+                    mostrarEstadisticas(); 
+                    break;
+                case 4: 
+                    guardarYSalir(); 
+                    return;
+                default: 
+                    return;
             }
         }
     }
