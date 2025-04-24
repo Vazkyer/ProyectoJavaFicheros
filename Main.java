@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    private static final String ARCHIVO = "contactos.csv"; // Variable estatica nombre archivo .csv
+    private static final String ARCHIVO = "contactos.csv"; // Nombre del archivo CSV donde se guardan los contactos
     private static ArrayList<Persona> contactos = new ArrayList<>(); // ArrayList de la clase Persona
-    // Funcion main del flujo del programa
+    
+    // Punto de entrada del programa: carga los datos y muestra el menú principal
     public static void main(String[] args) {
         cargarContactos();
         mostrarMenuPrincipal();
     }
     // Mostrar el menu principal con JOptionPane
     private static void mostrarMenuPrincipal() {
-        // Array String de botones de opciones
+        // Opciones del menú principal
         String[] opciones = {
                 "Crear contacto",
                 "Mostrar todos",
@@ -51,11 +52,11 @@ public class Main {
                 case 3: 
                     mostrarEstadisticas(); 
                     break;
-                // Opcion para Guardar y salir, el cual ahceun return para deja rel bucle
+                // Opcion para Guardar y salir, el cual hace un return para salir del bucle
                 case 4: 
                     guardarYSalir(); 
                     return;
-                // Opcion pro defecto sale del bucle
+                // Opcion por defecto sale del bucle
                 default: 
                     return;
             }
@@ -130,10 +131,10 @@ public class Main {
             return;
         }
 
-        // Crear area de texto para mostrar los contactos
+        // Crear un área de texto para mostrar la lista de contactos
         JTextArea areaTexto = new JTextArea(15, 40);
         areaTexto.setEditable(false); // No permitir la edicin del texto en dicha area
-        contactos.forEach(p -> areaTexto.append(p + "\n")); // Imprimir en el area de texto cada contacto en una linea nuvela haciendo For Each
+        contactos.forEach(p -> areaTexto.append(p + "\n")); // Agregar cada contacto al área de texto haciendo ForEach
 
         // Mostrar ventana con el area de texto y el mensaje de Listado completo
         JOptionPane.showMessageDialog(
@@ -210,16 +211,14 @@ public class Main {
         // Hacemos un try para intentar leer el archivo .csv 
         try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO))) {
             String linea; // Creamos un string linea
-            // Relalizamos un bucle while por cada linea
+            // Leer el archivo línea por línea
             while ((linea = br.readLine()) != null) {
                 // Creamos un array datos que separe los datos por la coma
                 String[] datos = linea.split(",");
                 //  Comprobamos que el array tenga 4 datos
                 if (datos.length != 4) 
                     continue;
-                // Creamos una clase persona llamada p
-                // Si el primer dato del array el cual es el tipo es igual a Alumno se inserta el array en una nueva clase Alumno
-                // Si no es un alumno se inserta como profesor
+                // Crear un objeto Alumno o Profesor según el tipo indicado
                 Persona p = datos[0].equals("Alumno") ?
                         new Alumno(datos[1], datos[2], datos[3]) :
                         new Profesor(datos[1], datos[2], datos[3]);
@@ -239,9 +238,9 @@ public class Main {
 
     // Funcion para guardar el array list en el archivo .csv y salir del programa
     private static void guardarYSalir() {
-        // Intentamos crear una nueva clase PrintWriter del archivo para escribir lineas mas facilmente
+        // Abrir el archivo para escritura usando PrintWriter para poder escribir mas facilmente
         try (PrintWriter pw = new PrintWriter(ARCHIVO)) {
-            // Recorremos cda contacto del ArrayList
+            // Recorremos cada contacto del ArrayList
             contactos.forEach(p -> {
                 // Utilizamos instanceof para sabar si es alumno o profesor
                 if (p instanceof Alumno a) {
@@ -253,7 +252,7 @@ public class Main {
                             a.getCurso()
                     ));
                 } else if (p instanceof Profesor pr) {
-                    // Se inserta el profesor dividido por ,
+                    // Escribir los datos del alumno en formato CSV
                     pw.println(String.join(",",
                             "Profesor",
                             pr.getNombre(),
