@@ -35,21 +35,27 @@ public class Main {
             );
             // Switch para ejecutar cada funcion en funcion de la eleccion del usuario
             switch (seleccion) {
+                // Opcion Crear contacto
                 case 0: 
                     crearContacto(); 
                     break;
+                // Opcion Mostrar los Contactos
                 case 1: 
                     mostrarTodos(); 
                     break;
+                 // Opcion Buscar los Conctos 
                 case 2: 
                     buscarContacto(); 
                     break;
+                // Opcion Mostrar estadisticas
                 case 3: 
                     mostrarEstadisticas(); 
                     break;
+                // Opcion para Guardar y salir, el cual ahceun return para deja rel bucle
                 case 4: 
                     guardarYSalir(); 
                     return;
+                // Opcion pro defecto sale del bucle
                 default: 
                     return;
             }
@@ -124,12 +130,12 @@ public class Main {
             return;
         }
 
-        // Crear ara de texto para mostrar lso contactos
+        // Crear area de texto para mostrar los contactos
         JTextArea areaTexto = new JTextArea(15, 40);
         areaTexto.setEditable(false); // No permitir la edicin del texto en dicha area
         contactos.forEach(p -> areaTexto.append(p + "\n")); // Imprimir en el area de texto cada contacto en una linea nuvela haciendo For Each
 
-        // Mostrar
+        // Mostrar ventana con el area de texto y el mensaje de Listado completo
         JOptionPane.showMessageDialog(
                 null,
                 new JScrollPane(areaTexto),
@@ -137,24 +143,34 @@ public class Main {
                 JOptionPane.INFORMATION_MESSAGE
         );
     }
-
+    // Funcion para buscar contectos dado el nombre
     private static void buscarContacto() {
+        // Mostrar ventana para recibir el nombre de usuario por el cual buscar mediante el input del usuario
         String nombre = JOptionPane.showInputDialog("Introduzca nombre a buscar:");
-        if (nombre == null || nombre.isBlank()) return;
 
+        // Si el nombre el null o vacio termina la funcion
+        if (nombre == null || nombre.isBlank()) 
+            return;
+        // Creamos una lista llamada resultados con el contenido de los contactos los 
+        // cuales contienen el nombre introduciodo, convirtiendo tanto el guardado como
+        // el buscado en minusculas apra que no haya problemas de formato
         List<Persona> resultados = contactos.stream()
                 .filter(p -> p.getNombre().toLowerCase().contains(nombre.toLowerCase()))
                 .toList();
 
+        // Si la lista de los resultados esta vacia se le muesta al usuario que no existe ese contacto
         if (resultados.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
             return;
         }
 
+        // Creamos un area de texto 
         JTextArea areaTexto = new JTextArea(10, 30);
-        areaTexto.setEditable(false);
-        resultados.forEach(p -> areaTexto.append(p + "\n"));
+        areaTexto.setEditable(false); // No permitir la edicin del texto en dicha area
+        // Imprimir en el area de texto cada contacto  dentro del resultado en una linea nueva haciendo For Each
+        resultados.forEach(p -> areaTexto.append(p + "\n")); 
 
+        // Mostramos el area de texto y el mensaje Resultados de busqueda con todas las conicidencias
         JOptionPane.showMessageDialog(
                 null,
                 new JScrollPane(areaTexto),
@@ -163,10 +179,15 @@ public class Main {
         );
     }
 
+    // Funcion apra mostrar estadisticas de la base de datos
     private static void mostrarEstadisticas() {
+        // Creamos una variable long contando el numeor de alumnos
         long alumnos = contactos.stream().filter(p -> p instanceof Alumno).count();
+        // Creamos otra varibale long con el numero de profesores restandole el de alumnos
         long profesores = contactos.size() - alumnos;
 
+        // Creamos un string con las estadisticas de numero de alumnos y profesores, 
+        // tambien en funcion de el numero nos muestra si hay mas alumnos profesores o el mismo numero
         String mensaje = String.format(
                 "Estadísticas:\n- Alumnos: %d\n- Profesores: %d\n\n%s",
                 alumnos,
@@ -174,7 +195,8 @@ public class Main {
                 alumnos > profesores ? "Hay más alumnos" :
                         profesores > alumnos ? "Hay más profesores" : "Misma cantidad"
         );
-
+        
+        // Mostramos el mensaje con las estadisticas
         JOptionPane.showMessageDialog(
                 null,
                 mensaje,
@@ -183,19 +205,28 @@ public class Main {
         );
     }
 
+    // Funcion para cargar contactos del archivo
     private static void cargarContactos() {
+        // Hacemos un try para intentar leer el archivo .csv 
         try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO))) {
-            String linea;
+            String linea; // Creamos un string linea
+            // Relalizamos un bucle while por cada linea
             while ((linea = br.readLine()) != null) {
+                // Creamos un array datos que separe los datos por la coma
                 String[] datos = linea.split(",");
-                if (datos.length != 4) continue;
-
+                //  Comprobamos que el array tenga 4 datos
+                if (datos.length != 4) 
+                    continue;
+                // Creamos una clase persona llamada p
+                // Si el primer dato del array el cual es el tipo es igual a Alumno se inserta el array en una nueva clase Alumno
+                // Si no es un alumno se inserta como profesor
                 Persona p = datos[0].equals("Alumno") ?
                         new Alumno(datos[1], datos[2], datos[3]) :
                         new Profesor(datos[1], datos[2], datos[3]);
-
+                // Inserta la nueva persona al ArrayList
                 contactos.add(p);
             }
+        // Mostrar mensaje de error si no se pudieron cargar los contactos
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
                     null,
@@ -206,10 +237,15 @@ public class Main {
         }
     }
 
+    // Funcion para guardar el array list en el archivo .csv y salir del programa
     private static void guardarYSalir() {
+        // Intentamos crear una nueva clase PrintWriter del archivo para escribir lineas mas facilmente
         try (PrintWriter pw = new PrintWriter(ARCHIVO)) {
+            // Recorremos cda contacto del ArrayList
             contactos.forEach(p -> {
+                // Utilizamos instanceof para sabar si es alumno o profesor
                 if (p instanceof Alumno a) {
+                    // Se inserta el alumno dividido por ,
                     pw.println(String.join(",",
                             "Alumno",
                             a.getNombre(),
@@ -217,6 +253,7 @@ public class Main {
                             a.getCurso()
                     ));
                 } else if (p instanceof Profesor pr) {
+                    // Se inserta el profesor dividido por ,
                     pw.println(String.join(",",
                             "Profesor",
                             pr.getNombre(),
@@ -225,7 +262,9 @@ public class Main {
                     ));
                 }
             });
+            // Se muestra mensaje de existo al usuario si todo salio bien
             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+        // Damos el mensaje de error al usuario si no ha salido bien el guardado
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
                     null,
