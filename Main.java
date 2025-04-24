@@ -1,7 +1,16 @@
-import javax.swing.*;
-import java.io.*;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Main {
     private static final String ARCHIVO = "contactos.csv"; // Nombre del archivo CSV donde se guardan los contactos
