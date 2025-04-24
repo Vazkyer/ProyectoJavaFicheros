@@ -11,10 +11,12 @@ public class Alumno extends Persona {
         return "Alumno";
     }
 
+    // Funcion obtener el curso
     public String getCurso() {
         return curso;
     }
 
+    // Agregar a el toString el curso
     @Override
     public String toString() {
         return super.toString() + " - Curso: " + curso;
