@@ -10,8 +10,13 @@ public class Alumno extends Persona {
     public String getTipo() {
         return "Alumno";
     }
-    // Funcion nueva Obtener curso
+
     public String getCurso() {
         return curso;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " - Curso: " + curso;
     }
 }
