@@ -55,9 +55,11 @@ public class Main {
             }
         }
     }
-
+    // Funcion para crear un nuevo contacto he insertarlo en el archivo .csv
     private static void crearContacto() {
+        // Array String de los dos tipos de contactos
         String[] tipos = {"Alumno", "Profesor"};
+        // Menu JOptionPane para registrar entrada del usuario
         String tipo = (String) JOptionPane.showInputDialog(
                 null,
                 "Seleccione tipo de contacto:",
@@ -68,18 +70,23 @@ public class Main {
                 tipos[0]
         );
 
-        if (tipo == null) return;
+        // Terminar la funcion si no hay input del usuario
+        if (tipo == null) 
+            return;
 
+        // Variables para recoger inputs del usuario
         JTextField nombreField = new JTextField();
         JTextField emailField = new JTextField();
         JTextField detalleField = new JTextField();
 
+        // Array de objetos para recoger el input del usuario
         Object[] campos = {
                 "Nombre:", nombreField,
                 "Email:", emailField,
                 tipo.equals("Alumno") ? "Curso:" : "Especialidad:", detalleField
         };
 
+        // Varibale int para ver la confirmacion del boton para crear el contacto
         int confirmacion = JOptionPane.showConfirmDialog(
                 null,
                 campos,
@@ -87,6 +94,7 @@ public class Main {
                 JOptionPane.OK_CANCEL_OPTION
         );
 
+        // Una vez recogido el input del usuario y confirmado, lo metemos en su tipo de clase con un try para mostrar si ha tenido exito o no
         if (confirmacion == JOptionPane.OK_OPTION) {
             try {
                 Persona nuevo = tipo.equals("Alumno") ?
