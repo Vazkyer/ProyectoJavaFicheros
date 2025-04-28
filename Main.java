@@ -145,10 +145,10 @@ public class Main {
 
         // Crear un área de texto para mostrar la lista de contactos
         JTextArea areaTexto = new JTextArea(15, 40);
-        areaTexto.setEditable(false); // No permitir la edicin del texto en dicha area
+        areaTexto.setEditable(false); // No permitir la edicion del texto en dicha area
         contactos.forEach(p -> areaTexto.append(p + "\n")); // Agregar cada contacto al área de texto haciendo ForEach
 
-        // Mostrar ventana con el area de texto y el mensaje de Listado completo
+        // Mostrar ventana con el area de texto con el listado de contactos
         JOptionPane.showMessageDialog(
                 null,
                 new JScrollPane(areaTexto),
@@ -161,12 +161,12 @@ public class Main {
         // Mostrar ventana para recibir el nombre de usuario por el cual buscar mediante el input del usuario
         String nombre = JOptionPane.showInputDialog("Introduzca nombre a buscar:");
 
-        // Si el nombre el null o vacio termina la funcion
+        // Si el nombre es null o vacio termina la funcion
         if (nombre == null || nombre.isBlank()) 
             return;
         // Creamos una lista llamada resultados con el contenido de los contactos los 
         // cuales contienen el nombre introduciodo, convirtiendo tanto el guardado como
-        // el buscado en minusculas apra que no haya problemas de formato
+        // el buscado en minusculas para que no haya problemas de formato
         List<Persona> resultados = contactos.stream()
                 .filter(p -> p.getNombre().toLowerCase().contains(nombre.toLowerCase()))
                 .toList();
@@ -183,7 +183,7 @@ public class Main {
         // Imprimir en el area de texto cada contacto  dentro del resultado en una linea nueva haciendo For Each
         resultados.forEach(p -> areaTexto.append(p + "\n")); 
 
-        // Mostramos el area de texto y el mensaje Resultados de busqueda con todas las conicidencias
+        // Mostramos el area de texto con los resultados de busqueda con todas las conicidencias
         JOptionPane.showMessageDialog(
                 null,
                 new JScrollPane(areaTexto),
@@ -192,9 +192,9 @@ public class Main {
         );
     }
 
-    // Funcion apra mostrar estadisticas de la base de datos
+    // Funcion para mostrar estadisticas de la base de datos
     private static void mostrarEstadisticas() {
-        // Creamos una variable long contando el numeor de alumnos
+        // Creamos una variable long contando el numero de alumnos
         long alumnos = contactos.stream().filter(p -> p instanceof Alumno).count();
         // Creamos otra varibale long con el numero de profesores restandole el de alumnos
         long profesores = contactos.size() - alumnos;
