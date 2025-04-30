@@ -47,12 +47,6 @@ Este programa es una aplicación Java que permite gestionar contactos de alumnos
 - **Alumno y Profesor**: Son clases que heredan de Persona y añaden variables específicss como curso y especialidad, respectivamente. Las dos implementan el método getTipo() para diferenciar el tipo de contacto.
 - **Main**: Flujo principal del programa, gestionando los contactos utilizando las clases Alumno y Profesor.
 
-### Diagrama de clases
-
-Diagrama de las clases:
-
--- Insertar diagrama
-
 
 ### Estructura de archivos
 
