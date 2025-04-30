@@ -91,7 +91,7 @@ Además, el proyecto incluye este archivo:
 
 ## Video
 
---Insertar video
+[![Demo del proyecto](https://img.youtube.com/vi/68z02KKD8JU/hqdefault.jpg)]([https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## Archivos entregados
 
