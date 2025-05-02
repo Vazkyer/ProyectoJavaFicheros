@@ -85,7 +85,7 @@ Además, el proyecto incluye este archivo:
 
 ## Creadores
 
-- Félix Sácnhez y Alain Vázquez.
+- Félix Sánchez y Alain Vázquez.
 
 ---
 
